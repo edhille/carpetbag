@@ -1,0 +1,10 @@
+# add aliases
+alias lf='ls -AF | grep \/'
+
+# colorize common commands
+alias grep='/usr/bin/grep --color=auto'
+alias ls='/usr/bin/ls -G'
+
+# paths
+
+PATH=~/bin:~/.carpetbag/scripts/:${PATH}
