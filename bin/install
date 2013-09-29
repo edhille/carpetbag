@@ -1,0 +1,4 @@
+#! /bin/bash
+
+for file in ~/.carpetbag/bin/install.d/*; do $file; done
+source ~/.bashrc
