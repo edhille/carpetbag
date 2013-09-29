@@ -1,8 +1,8 @@
 #! /bin/bash
 
-if [ command -v rvm>/dev/null 2>&1 ] then
-   echo "rvm already installed..."
+if command_exists rvm ; then
+   echo 'rvm already installed...'
 else
-   echo "Installing rvm..." > &2
+   echo 'Installing rvm...'
    curl -L https://get.rvm.io | bash -s stable --ruby
 fi

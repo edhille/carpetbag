@@ -6,5 +6,9 @@ alias grep='/usr/bin/grep --color=auto'
 alias ls='/usr/bin/ls -G'
 
 # paths
-
 PATH=~/bin:~/.carpetbag/scripts/:${PATH}
+
+# helper functions
+command_exists() {
+   command -v $1 >/dev/null 2>&1
+}
