@@ -1,0 +1,15 @@
+#! /bin/bash
+
+if command_exists node ; then
+   echo 'node installed already...'
+else
+   echo 'installing node/npm...'
+
+   brew install node
+fi
+
+echo 'setting path for node modules...'
+
+# NOTE: we assume node is set up in /usr/local/share/
+
+PATH=$PATH:/usr/local/share/npm/bin
