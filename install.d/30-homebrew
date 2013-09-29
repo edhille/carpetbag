@@ -1,0 +1,9 @@
+#! /bin/bash
+
+if command_exists brew ; then
+   echo 'homebrew already installed...'
+else
+   echo 'Installing homebrew...'
+
+   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+fi
