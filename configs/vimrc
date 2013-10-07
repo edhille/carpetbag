@@ -1,0 +1,52 @@
+
+call pathogen#infect()
+call pathogen#helptags()
+
+" layout
+set ruler
+set nu
+set wrap
+colorscheme desertEx
+
+" tabs
+set tabstop=3
+set shiftwidth=3
+set expandtab
+
+" folding
+"let javascript_fold=1
+let ruby_fold=1
+let perl_fold=1
+let perl_fold_blocks=1
+"set foldlevel=3
+
+" misc
+let g:netrw_fastbrowse=0
+set nobackup
+filetype plugin indent on
+syntax on
+
+" javascript tweaks
+" NOTE: assumes we have javascript.vim syntax file from https://github.com/jelera/vim-javascript-syntax
+au FileType javascript call JavaScriptFold()
+
+" tweaks for specific filetypes 
+if !exists("custom_file_formatting_loaded")
+	let custom_file_formatting_loaded=1
+	autocmd FileType perl call PerlFileSettings()
+	au BufNewFile,BufRead *.cap setf ruby
+	autocmd FileType ruby set tabstop=2 shiftwidth=2 autoindent
+	autocmd FileType javascript set autoindent
+endif
+
+function! PerlFileSettings()
+	set cindent
+	set cinkeys=0{,0},!^F,o,O,e
+endfunction
+
+augroup markdown
+	au! BufRead,BufNewFile *.mkd   setfiletype mkd
+augroup END
+
+" Give a shortcut key to NERD Tree
+map <F2> :NERDTreeToggle<CR>
