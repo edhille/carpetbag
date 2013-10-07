@@ -1,9 +1,5 @@
 #! /bin/bash
 
-if [ ! -e ~/.bashrc ] then
-   touch ~/.bashrc
-fi
-
 for file in ~/.carpetbag/install.d/*; do $file; done
 ~/.carpetbag/link-cfgs
 source ~/.bashrc

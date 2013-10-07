@@ -1,14 +1,3 @@
-# add aliases
-alias lf='ls -AF | grep \/'
+#!/bin/bash
 
-# colorize common commands
-alias grep='/usr/bin/grep --color=auto'
-alias ls='/usr/bin/ls -G'
-
-# paths
-PATH=~/bin:~/.carpetbag/scripts/:${PATH}
-
-# helper functions
-command_exists() {
-   command -v $1 >/dev/null 2>&1
-}
+for file in $(find -L ~/.nomad/bash/enabled/ -type f ! -iname ".*" | sort); do source $file; done
