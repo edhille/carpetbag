@@ -2,18 +2,21 @@
 
 echo "Installing pathogen..."
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -Sso ~/.vim/autoload/pathogen.vim \
     https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 echo "Installing desertEx theme...."
 
-mkdir -p ~/.vim/colors; \
+mkdir -p ~/.vim/colors
 curl -Sso ~/.vim/colors/desertEx.vim \
    http://www.vim.org/scripts/download_script.php?src_id=16802
 
 echo "Add our favorite vim bundles..."
 
-mkdir -p ~/.vim/bundle; \
-cd ~/.vim/bundle; \
-git clone https://github.com/scrooloose/nerdtree.git
+mkdir -p ~/.vim/bundle
+cd ~/.vim/bundle
+
+if [ ! -d ~/.vim/bundle/nerdtree ]; then
+   git clone https://github.com/scrooloose/nerdtree.git
+fi
