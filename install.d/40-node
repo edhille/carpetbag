@@ -5,11 +5,12 @@ if command -v node >/dev/null 2>&1; then
 else
    echo 'installing node/npm...'
 
-   #brew install node
+   brew install node
+
+   echo 'setting path for node modules...'
+
+   # NOTE: we assume node is set up in /usr/local/share/
+
+   echo "PATH=$PATH:/usr/local/share/npm/bin" >> ~/.bashrc
 fi
 
-echo 'setting path for node modules...'
-
-# NOTE: we assume node is set up in /usr/local/share/
-
-#echo "PATH=$PATH:/usr/local/share/npm/bin" >> ~/.bashrc
