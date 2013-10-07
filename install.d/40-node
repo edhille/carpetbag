@@ -5,11 +5,11 @@ if command_exists node ; then
 else
    echo 'installing node/npm...'
 
-   brew install node
+   #brew install node
 fi
 
 echo 'setting path for node modules...'
 
 # NOTE: we assume node is set up in /usr/local/share/
 
-PATH=$PATH:/usr/local/share/npm/bin
+#echo "PATH=$PATH:/usr/local/share/npm/bin" >> ~/.bashrc

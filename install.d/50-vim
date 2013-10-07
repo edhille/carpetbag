@@ -1,0 +1,12 @@
+#! /bin/bash
+
+echo "Installing pathogen..."
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+echo "Installing desertEx theme...."
+mkdir -p ~/.vim/colors; \
+curl -Sso ~/.vim/colors/desertEx.vim \
+   http://www.vim.org/scripts/download_script.php?src_id=16802
