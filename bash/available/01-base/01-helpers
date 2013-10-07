@@ -1,3 +1,4 @@
 command_exists() {
+   echo "Testing for command ${1}..."
    command -v $1 >/dev/null 2>&1
 }

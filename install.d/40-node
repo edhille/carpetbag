@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if command_exists node ; then
+if command -v node >/dev/null 2>&1; then
    echo 'node installed already...'
 else
    echo 'installing node/npm...'

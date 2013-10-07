@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if command_exists rvm ; then
+if command -v rvm >/dev/null 2>&1; then
    echo 'rvm already installed...'
 else
    echo 'Installing rvm...'

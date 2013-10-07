@@ -1,5 +1,7 @@
 #! /bin/bash
 
+echo "Run installers..."
 for file in ~/.carpetbag/install.d/*; do $file; done
+
+echo "Link config files..."
 ~/.carpetbag/bin/link-cfgs
-source ~/.bashrc

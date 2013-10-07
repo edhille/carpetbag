@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for file in $(find -L ~/.carpetbag/bash/enabled/ -type f ! -iname ".*" | sort)
+do
+   echo "Loading ${file}..."
+   source $file
+done

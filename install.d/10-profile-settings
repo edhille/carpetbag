@@ -1,3 +1,22 @@
 #!/bin/bash
 
-for file in $(find -L ~/.carpetbag/bash/enabled/ -type f ! -iname ".*" | sort); do source $file; done
+echo "Configure bash to load all enabled settings files..."
+unique=uijooQu2
+
+numuniq=$(grep -c $unique ~/.bash_profile)
+if [[ $numuniq -eq 0 ]]; then
+   echo "Updating .bash_profile to always source .bashrc..."
+   echo "source ~/.bashrc #$unique" >> ~/.bash_profile
+else
+   echo "Already configured to load .bashrc..."
+fi
+
+numuniq=$(grep -c $unique ~/.bashrc)
+if [[ $numuniq -eq 0 ]]; then
+   echo "Add necessary configuration..."
+   echo "source ~/.carpetbag/bin/bashload #$unique" >> ~/.bashrc
+elif [[ $numuniq -eq 1 ]]; then
+   echo "Already have our setup..."
+fi
+
+source ~/.bashrc
