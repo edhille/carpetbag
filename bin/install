@@ -1,5 +1,5 @@
 #! /bin/bash
 
 for file in ~/.carpetbag/install.d/*; do $file; done
-~/.carpetbag/link-cfgs
+~/.carpetbag/bin/link-cfgs
 source ~/.bashrc
