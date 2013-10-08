@@ -1,0 +1,6 @@
+#! /bin/bash
+
+if [ ! $(npm list -g | grep 'grunt-cli') ]
+then
+   npm install -g grunt-cli
+fi
