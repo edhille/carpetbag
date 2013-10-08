@@ -13,4 +13,3 @@ else
 
    echo "PATH=$PATH:/usr/local/share/npm/bin" >> ~/.bashrc
 fi
-

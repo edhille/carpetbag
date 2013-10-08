@@ -20,3 +20,15 @@ cd ~/.vim/bundle
 if [ ! -d ~/.vim/bundle/nerdtree ]; then
    git clone https://github.com/scrooloose/nerdtree.git
 fi
+
+if [ ! -d ~/.vim/bundle/vim-javascript-syntax ]; then
+   git clone https://github.com/jelera/vim-javascript-syntax.git
+fi
+
+if [ ! -d ~/.vim/bundle/vim-jshint ]; then
+   git clone https://github.com/sleistner/vim-jshint.git
+fi
+
+if [ ! -d ~/.vim/bundle/grunt ]; then
+   git clone https://github.com/mklabs/grunt.vim.git
+fi
