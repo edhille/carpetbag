@@ -32,3 +32,7 @@ fi
 if [ ! -d ~/.vim/bundle/grunt.vim ]; then
    git clone https://github.com/mklabs/grunt.vim.git
 fi
+
+if [ ! -d ~/.vim/bundle/auto-pairs ]; then
+   git clone https://github.com/vim-scripts/Auto-Pairs.git
+fi
