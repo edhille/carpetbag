@@ -29,6 +29,6 @@ if [ ! -d ~/.vim/bundle/vim-jshint ]; then
    git clone https://github.com/sleistner/vim-jshint.git
 fi
 
-if [ ! -d ~/.vim/bundle/grunt ]; then
+if [ ! -d ~/.vim/bundle/grunt.vim ]; then
    git clone https://github.com/mklabs/grunt.vim.git
 fi
