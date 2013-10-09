@@ -8,6 +8,18 @@ set nu
 set wrap
 colorscheme desertEx
 
+" help keep lines to the appropriate length
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%>131v.\+/
+set lbr
+set tw=130
+
+" search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
 " tabs
 set tabstop=3
 set shiftwidth=3
