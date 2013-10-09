@@ -21,9 +21,9 @@ set hlsearch
 set incsearch
 
 " tabs
-set tabstop=3
-set shiftwidth=3
-set expandtab
+set tabstop=4
+set shiftwidth=4
+"set expandtab
 
 " folding
 "let javascript_fold=1
