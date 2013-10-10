@@ -5,7 +5,12 @@ if command -v node >/dev/null 2>&1; then
 else
    echo 'installing node/npm...'
 
-   brew install node
+   if [ (uname) == 'Darwin' ]
+   then
+	   brew install node
+   elif [ (uname) == 'Linux' ]
+   then
+   fi
 
    echo 'setting path for node modules...'
 

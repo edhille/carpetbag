@@ -1,7 +1,15 @@
 #! /bin/bash
 
+# workaround for systems that have poor cert support
+#to download the cert
+wget http://curl.haxx.se/ca/cacert.pem
+#to let curl use it for the next calls
+export CURL_CA_BUNDLE=~/cacert.pem
+
 echo "Run installers..."
 for file in ~/.carpetbag/install.d/*; do $file; done
 
 echo "Link config files..."
 ~/.carpetbag/bin/link-cfgs
+
+export CURL_CA_BUNDLE=
