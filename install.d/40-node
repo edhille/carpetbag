@@ -12,7 +12,7 @@ else
    then
 		# borrowed from SO http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos
 		cd /tmp
-		wget http://nodejs.org/dist/node-latest.tar.gz
+		wget http://nodejs.org/dist/node-latest.tar.gz -O node-latest.tar.gz
 		tar zxvf node-latest.tar.gz
 		cd $(ls -t node* | sort | head -1) 
 		./configure
