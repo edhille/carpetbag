@@ -1,9 +1,12 @@
 #! /bin/bash
 
-if command -v brew >/dev/null 2>&1; then
-   echo 'homebrew already installed...'
-else
-   echo 'Installing homebrew...'
+if [ $(uname) == 'Darwin' ]
+then
+	if command -v brew >/dev/null 2>&1; then
+	   echo 'homebrew already installed...'
+	else
+	   echo 'Installing homebrew...'
 
-   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	fi
 fi
