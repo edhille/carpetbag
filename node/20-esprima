@@ -4,5 +4,5 @@ npm list -g | grep -q 'esprima'
 
 if [ ${PIPESTATUS[1]:-0} -ne 0 ]
 then
-   npm install -g esprima
+   sudo npm install -g esprima
 fi

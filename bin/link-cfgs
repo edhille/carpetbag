@@ -22,7 +22,7 @@ copy_config() {
 		done
 
 		popd $full_path
-	elif [ -f $full_path ]
+	elif [ -f $full_path -a ! -e $target ]
 	then
 		ln -s $full_path $target
 	fi
