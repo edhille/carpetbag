@@ -10,6 +10,14 @@ else
 	   brew install node
    elif [ (uname) == 'Linux' ]
    then
+		# borrowed from SO http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos
+		cd /tmp
+		wget http://nodejs.org/dist/node-latest.tar.gz
+		tar zxvf node-latest.tar.gz
+		cd $(ls -t node* | sort | head -1) 
+		./configure
+		make
+		make install
    fi
 
    echo 'setting path for node modules...'

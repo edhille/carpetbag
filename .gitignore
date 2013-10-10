@@ -1,3 +1,4 @@
 *.swp
 .DS_Store
 bash/enabled/*
+npm-debug.log
