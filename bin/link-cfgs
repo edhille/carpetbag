@@ -1,9 +1,46 @@
 #!/bin/bash
 
+CONFIGS_DIR=~/.carpetbag/configs
+
+copy_config() {
+	full_path=$1
+	path=${full_path#${CONFIGS_DIR}\/}
+	target=~/.$path
+
+	if [ -d $full_path ]
+	then
+		pushd $full_path
+
+		mkdir -p $target
+
+		for dir in $(find -L ${full_path} -d 1 ! -iname ".*" | sort)
+		do
+			if [ $full_path != $dir ]
+			then
+				copy_config $dir
+			fi
+		done
+
+		popd $full_path
+	elif [ -f $full_path ]
+	then
+		ln -s $full_path $target
+	fi
+}
+
 #TODO If a cfg file exists and it's not a link, do a diff.
 #     If they're the same, remove file and convert to link.
 #     If not the same, message user.
-for cfg in ~/.carpetbag/configs/*; do
-    target=~/.$(basename $cfg)
-    [ -h $target ] || ln -s $cfg $target
-done;
+
+# copy top-level configs
+for path in $(find -L ${CONFIGS_DIR} -d 1 ! -iname ".*" | sort)
+do
+	if [ -f $path ]
+	then
+		target=~/.$(basename $path)
+		[ -h $target ] || [ -e $target ] || ln -s $path $target
+	elif [ -d $path -a $path != $CONFIGS_DIR ]
+	then
+		copy_config $path
+	fi
+done
