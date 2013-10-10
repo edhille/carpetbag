@@ -13,7 +13,7 @@ copy_config() {
 
 		mkdir -p $target
 
-		for dir in $(find -L ${full_path} -d 1 ! -iname ".*" | sort)
+		for dir in $(find -L ${full_path} -maxdepth 1 ! -iname ".*" | sort)
 		do
 			if [ $full_path != $dir ]
 			then
@@ -33,7 +33,7 @@ copy_config() {
 #     If not the same, message user.
 
 # copy top-level configs
-for path in $(find -L ${CONFIGS_DIR} -d 1 ! -iname ".*" | sort)
+for path in $(find -L ${CONFIGS_DIR} -maxdepth 1 ! -iname ".*" | sort)
 do
 	if [ -f $path ]
 	then
