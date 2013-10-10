@@ -2,3 +2,4 @@
 .DS_Store
 bash/enabled/*
 npm-debug.log
+cacert.pem
