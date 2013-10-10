@@ -5,10 +5,10 @@ if command -v node >/dev/null 2>&1; then
 else
    echo 'installing node/npm...'
 
-   if [ (uname) == 'Darwin' ]
+   if [ $(uname) == 'Darwin' ]
    then
 	   brew install node
-   elif [ (uname) == 'Linux' ]
+   elif [ $(uname) == 'Linux' ]
    then
 		# borrowed from SO http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos
 		cd /tmp
