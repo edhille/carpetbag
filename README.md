@@ -1,7 +1,7 @@
 carpetbag
 =========
 
-Bash scripts to help me set up basic development plumbing on any nix machine
+Bash scripts to help me set up basic development plumbing on any nix machine. I borrowed heavily from [nomad](https://github.com/nijotz/nomad).
 
 Assumptions:
 
