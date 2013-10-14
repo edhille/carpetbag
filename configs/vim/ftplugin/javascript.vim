@@ -1,1 +1,1 @@
-set mkprog=esvalidate
+set makeprg=esvalidate

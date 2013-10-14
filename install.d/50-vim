@@ -34,4 +34,6 @@ install_bundle 'mklabs/grunt'
 
 install_bundle 'vim-scripts/Auto-Pairs'
 
+install_bundle 'jelera/vim-javascript-syntax'
+
 popd
