@@ -6,7 +6,12 @@ call pathogen#helptags()
 set ruler
 set nu
 set wrap
-colorscheme desertEx
+
+" color stuff
+set background=dark
+colorscheme jellybeans
+" disable background erase (so colors draw nice in tmux)
+set t_ut=
 
 " help keep lines to the appropriate length
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
