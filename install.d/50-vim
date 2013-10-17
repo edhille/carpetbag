@@ -40,4 +40,6 @@ install_bundle 'vim-scripts/phpfolding.vim/blob/master/plugin/phpfolding.vim'
 
 install_bundle 'scrooloose/syntastic'
 
+install_bundle 'kien/ctrlp.vim'
+
 popd
