@@ -7,12 +7,6 @@ set ruler
 set nu
 set wrap
 
-" color stuff
-set background=dark
-colorscheme jellybeans
-" disable background erase (so colors draw nice in tmux)
-set t_ut=
-
 " help keep lines to the appropriate length
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%>131v.\+/
@@ -35,7 +29,7 @@ set shiftwidth=4
 let ruby_fold=1
 let perl_fold=1
 let perl_fold_blocks=1
-"set foldlevel=3
+set foldlevel=3
 
 " misc
 let g:netrw_fastbrowse=0
@@ -65,8 +59,33 @@ augroup markdown
 	au! BufRead,BufNewFile *.mkd   setfiletype mkd
 augroup END
 
+" color stuff
+set background=dark
+
+" NOTE: in tmux, using both these colorschemes creates an acceptable palette (singly, neither do....)
+"colorscheme jellybeans
+"colorscheme 256-grayvim
+"colorscheme guardian
+"colorscheme twilight
+"colorscheme candy
+"colorscheme freya
+"colorscheme desert
+"colorscheme oceandeep
+"colorscheme gentooish
+"colorscheme devbox-dark-256
+"colorscheme dark-ruby
+"colorscheme wombat256
+colorscheme torte
+" disable background erase (so colors draw nice in tmux)
+set t_ut=
+
 " Give a shortcut key to NERD Tree
 map <F2> :NERDTreeToggle<CR>
 
 " Give a shortcut key to running validations
 map <F5> :Make<CR><C-w><Up>
+
+" PHP folding (really buggy...)
+map <F6> <Esc>:EnableFastPHPFolds<Cr>
+map <F7> <Esc>:EnablePHPFolds<Cr>
+map <F8> <Esc>:DisablePHPFolds<Cr>

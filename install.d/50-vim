@@ -32,4 +32,12 @@ install_bundle 'jelera/vim-javascript-syntax'
 
 install_bundle 'flazz/vim-colorschemes'
 
+install_bundle 'yearofmoo/Vim-Darkmate'
+
+install_bundle 'vim-scripts/phpfolding.vim'
+
+install_bundle 'vim-scripts/phpfolding.vim/blob/master/plugin/phpfolding.vim'
+
+install_bundle 'scrooloose/syntastic'
+
 popd

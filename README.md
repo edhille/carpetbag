@@ -6,3 +6,4 @@ Bash scripts to help me set up basic development plumbing on any nix machine. I 
 Assumptions:
 
 * the scripts all assume they are running in `~/.carpetbag`
+* make sure all your install script have execute permissions
