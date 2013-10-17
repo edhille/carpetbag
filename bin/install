@@ -2,7 +2,7 @@
 
 # workaround for systems that have poor cert support
 # from SO http://stackoverflow.com/questions/6414232/curl-certificate-error-when-using-rvm-to-install-ruby-1-9-2
-wget http://curl.haxx.se/ca/cacert.pem -O cacert.pem
+curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem
 export CURL_CA_BUNDLE=~/.carpetbag/cacert.pem
 
 # from SO http://stackoverflow.com/questions/3777075/ssl-certificate-rejected-trying-to-access-github-over-https-behind-firewall
