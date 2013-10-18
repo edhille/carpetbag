@@ -25,6 +25,9 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
+" enable clipboard copying in osx
+set clipboard=unnamed
+
 " folding
 "let javascript_fold=1
 let ruby_fold=1
@@ -61,24 +64,19 @@ augroup markdown
 augroup END
 
 " color stuff
+" disable background erase (so colors draw nice in tmux)
+set t_ut=
+" optimistically assume we are on 256-color terminal
+set t_Co=256
 set background=dark
 
 " NOTE: in tmux, using both these colorschemes creates an acceptable palette (singly, neither do....)
-"colorscheme jellybeans
-"colorscheme 256-grayvim
-"colorscheme guardian
-"colorscheme twilight
-"colorscheme candy
-"colorscheme freya
+"colorscheme 256-grayvim " ok...
+"colorscheme devbox-dark-256 " good...
+"colorscheme twilight256
 "colorscheme desert
-"colorscheme oceandeep
-"colorscheme gentooish
-"colorscheme devbox-dark-256
-"colorscheme dark-ruby
-"colorscheme wombat256
-colorscheme torte
-" disable background erase (so colors draw nice in tmux)
-set t_ut=
+"colorscheme torte
+colorscheme xoria256
 
 " Give a shortcut key to NERD Tree
 map <F2> :NERDTreeToggle<CR>

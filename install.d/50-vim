@@ -36,6 +36,9 @@ install_bundle 'yearofmoo/Vim-Darkmate'
 
 install_bundle 'vim-scripts/phpfolding.vim'
 
+# the phpfolding library has carriage returns which vim does not like, so clean those up...
+tr -d '\r' < ~/.vim/bundle/phpfolding.vim/plugin/phpfolding.vim > ~/.vim/bundle/phpfolding.vim/plugin/phpfolding.vim
+
 install_bundle 'vim-scripts/phpfolding.vim/blob/master/plugin/phpfolding.vim'
 
 install_bundle 'scrooloose/syntastic'
