@@ -33,13 +33,14 @@ set clipboard=unnamed
 let ruby_fold=1
 let perl_fold=1
 let perl_fold_blocks=1
-set foldlevel=3
+set foldlevel=4
 
 " misc
 let g:netrw_fastbrowse=0
 set nobackup
 filetype plugin indent on
 syntax on
+set ttymouse=xterm
 
 " javascript tweaks
 " NOTE: assumes we have javascript.vim syntax file from https://github.com/jelera/vim-javascript-syntax
