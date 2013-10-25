@@ -25,6 +25,9 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
+" but let files have overrides...
+set modeline
+
 " enable clipboard copying in osx
 set clipboard=unnamed
 
