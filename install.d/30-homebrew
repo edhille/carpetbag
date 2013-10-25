@@ -9,4 +9,8 @@ then
 
 	   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 	fi
+
+	echo 'Installing brew packages...'
+
+	~/.carpetbag/bin/brewload
 fi

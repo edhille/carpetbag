@@ -1,0 +1,3 @@
+#! /bin/bash
+
+for file in $(find -L ~/.carpetbag/brew/enabled/ -type f ! -iname ".*" | sort); do $file; done
