@@ -1,0 +1,4 @@
+function secret-cmd() {
+	`$@`
+	history -d $((HISTCMD-1))
+}
