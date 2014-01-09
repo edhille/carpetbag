@@ -1,12 +1,6 @@
 #! /bin/bash
 
-# workaround for systems that have poor cert support
-# from SO http://stackoverflow.com/questions/6414232/curl-certificate-error-when-using-rvm-to-install-ruby-1-9-2
-curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem
-export CURL_CA_BUNDLE=~/.carpetbag/cacert.pem
-
-# from SO http://stackoverflow.com/questions/3777075/ssl-certificate-rejected-trying-to-access-github-over-https-behind-firewall
-export GIT_SSL_CAINFO=~/.carpetbag/cacert.pem
+stub-cert-support -i
 
 echo "Run installers..."
 for file in ~/.carpetbag/install.d/*; do $file; done
@@ -14,5 +8,4 @@ for file in ~/.carpetbag/install.d/*; do $file; done
 echo "Link config files..."
 ~/.carpetbag/bin/link-cfgs
 
-export CURL_CA_BUNDLE=
-export GIT_SSL_CAINFO=
+stub-cert-support -c

@@ -1,0 +1,25 @@
+#! /bin/bash
+
+./stub-cert-support -i
+
+echo "Updating vim plugins..."
+
+pushd ~/.vim/bundle > /dev/null
+
+OLDIFS=$IFS
+IFS='
+'
+
+bundle_dirs=(`find . -maxdepth 1 -mindepth 1 -type d`)
+for dir in "${bundle_dirs[@]}"
+do
+	echo "updating '${dir}'..."
+	pushd $dir > /dev/null
+	git pull
+	popd > /dev/null
+done
+
+popd > /dev/null
+IFS=$OLDIFS
+
+./stub-cert-support -c

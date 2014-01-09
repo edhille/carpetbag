@@ -45,4 +45,6 @@ install_bundle 'scrooloose/syntastic'
 
 install_bundle 'kien/ctrlp.vim'
 
+install_bundle 'tomtom/tcomment_vim'
+
 popd
