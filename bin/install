@@ -1,6 +1,6 @@
 #! /bin/bash
 
-stub-cert-support -i
+~/.carpetbag/bin/stub-cert-support -i
 
 # update our submodules if we have not set them up yet on this machine
 if [  $(ls -l ~/.carpetbag/configs/bash-git-prompt | wc -l) = 0 ]; then
@@ -14,4 +14,4 @@ for file in ~/.carpetbag/install.d/*; do $file; done
 echo "Link config files..."
 ~/.carpetbag/bin/link-cfgs
 
-stub-cert-support -c
+~/.carpetbag/bin/stub-cert-support -c
