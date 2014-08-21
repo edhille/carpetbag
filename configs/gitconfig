@@ -3,3 +3,4 @@
    name = Ted Hille
 [alias]
    co = checkout
+   search = !sh -c 'git log -S $0 --source --all'
