@@ -47,4 +47,6 @@ install_bundle 'kien/ctrlp.vim'
 
 install_bundle 'tomtom/tcomment_vim'
 
+install_bundle 'editorconfig/editorconfig-vim'
+
 popd
