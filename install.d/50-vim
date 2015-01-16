@@ -22,6 +22,24 @@ install_bundle () {
 
 install_bundle 'scrooloose/nerdtree'
 
+# jshint requires there be a javascript runtime
+# if this is running on OSX, everything should be fine,
+# but if you are running on Linux, you need to make sure SpiderMonkey is installed
+
+if [ $(uname) == 'Linux' ]; then
+	if command -v js >/dev/null 2>&1; then
+		echo 'js already installed...'
+	else
+		echo 'installing js (requires sudo)...'
+
+		if command -v yum >/dev/null 2>&1; then
+			sudo yum install js-devel
+		else
+			echo 'system does not have yum, need to add functionality for whatever package system it uses..'
+		fi
+	fi
+fi
+
 install_bundle 'sleistner/vim-jshint'
 
 install_bundle 'mklabs/grunt'
