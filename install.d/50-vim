@@ -67,4 +67,6 @@ install_bundle 'tomtom/tcomment_vim'
 
 install_bundle 'editorconfig/editorconfig-vim'
 
+install_bundle 'derekwyatt/vim-scala'
+
 popd
