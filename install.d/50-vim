@@ -69,4 +69,14 @@ install_bundle 'editorconfig/editorconfig-vim'
 
 install_bundle 'derekwyatt/vim-scala'
 
+install_bundle 'bling/vim-airline'
+
+# install fonts for airline
+pushd /tmp
+git clone https://github.com/powerline/fonts.git
+./fonts/install.sh
+popd
+
+install_bundle 'tpope/vim-fugitive'
+
 popd
