@@ -79,4 +79,13 @@ popd
 
 install_bundle 'tpope/vim-fugitive'
 
+# install silver-searcher
+brew list the_silver_searcher 2>&1 > /dev/null
+
+if command -v ag>/dev/null 2>&1; then
+   echo 'silver server installed...'
+
+   install_bundle 'rking/ag.vim'
+fi
+
 popd
