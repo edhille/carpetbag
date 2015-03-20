@@ -84,7 +84,7 @@ set background=dark
 colorscheme xoria256
 
 " Give a shortcut key to NERD Tree
-map <F2> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " Give a shortcut key to running validations
 map <F5> :Make<CR><C-w><Up>
