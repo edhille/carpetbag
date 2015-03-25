@@ -31,13 +31,6 @@ set modeline
 " enable clipboard copying in osx
 set clipboard=unnamed
 
-" folding
-"let javascript_fold=1
-let ruby_fold=1
-let perl_fold=1
-let perl_fold_blocks=1
-set foldlevel=4
-
 " misc
 let g:netrw_fastbrowse=0
 set nobackup
@@ -45,9 +38,16 @@ filetype plugin indent on
 syntax on
 set ttymouse=xterm
 
+" folding
+let javascript_fold=1
+let ruby_fold=1
+let perl_fold=1
+let perl_fold_blocks=1
+set foldmethod=indent
+autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml setlocal foldmethod=syntax
+autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,perl normal zR
+
 " javascript tweaks
-" NOTE: assumes we have javascript.vim syntax file from https://github.com/jelera/vim-javascript-syntax
-au FileType javascript call JavaScriptFold()
 au BufNewFile,BufRead *.pjs setf javascript
 
 " tweaks for specific filetypes 

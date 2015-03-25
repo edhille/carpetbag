@@ -46,7 +46,7 @@ install_bundle 'mklabs/grunt'
 
 install_bundle 'vim-scripts/Auto-Pairs'
 
-install_bundle 'jelera/vim-javascript-syntax'
+install_bundle 'pangloss/vim-javascript'
 
 install_bundle 'flazz/vim-colorschemes'
 
