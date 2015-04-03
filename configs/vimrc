@@ -120,7 +120,8 @@ function UpdateJsHintConf()
     let l:jshintrc = s:find_jshintrc(l:dir)
     " let g:syntastic_javascript_jshint_conf = l:jshintrc
 	" let g:syntastic_javascript_jshint_args = '--config /Users/tedhille/Documents/Projects/heuristocrat.net/midi-visualizer-monad/.jshintrc'
-	let g:syntastic_javascript_jshint_args = '--version --config ' . l:jshintrc
+	let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
+	let g:syntastic_javascript_checkers = ['jshint']
 endfunction
 
 au BufEnter * call UpdateJsHintConf()

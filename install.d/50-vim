@@ -40,8 +40,6 @@ if [ $(uname) == 'Linux' ]; then
 	fi
 fi
 
-install_bundle 'sleistner/vim-jshint'
-
 install_bundle 'mklabs/grunt'
 
 install_bundle 'vim-scripts/Auto-Pairs'
