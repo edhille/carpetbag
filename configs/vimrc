@@ -141,3 +141,10 @@ let g:ctrlp_custom_ignore = {
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set laststatus=2
+
+" jsbeautify
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>

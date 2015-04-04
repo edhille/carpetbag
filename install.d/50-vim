@@ -69,6 +69,11 @@ install_bundle 'derekwyatt/vim-scala'
 
 install_bundle 'bling/vim-airline'
 
+install_bundle 'maksimr/vim-jsbeautify'
+
+pushd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive
+popd
+
 # install fonts for airline
 pushd /tmp
 git clone https://github.com/powerline/fonts.git
