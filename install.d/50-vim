@@ -71,6 +71,8 @@ install_bundle 'bling/vim-airline'
 
 install_bundle 'maksimr/vim-jsbeautify'
 
+install_bundle 'elzr/vim-json'
+
 pushd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive
 popd
 
