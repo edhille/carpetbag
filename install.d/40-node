@@ -3,13 +3,19 @@
 if command -v node >/dev/null 2>&1; then
    echo 'node installed already...'
 else
-   echo 'installing node/npm...'
 
    if [ $(uname) == 'Darwin' ]
    then
+   	   echo 'installing node/npm via brew...'
 	   brew install node
+   elif command -v apt-get >/dev/null 2>&1;
+   then
+   	   echo 'installing node/npm via apt-get...'
+	   sudo apt-get install node
+	   sudo apt-get install npm
    elif [ $(uname) == 'Linux' ]
    then
+   	    echo 'installing node/npm the hard way...'
 		# borrowed from SO http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos
 		cd /tmp
 		wget http://nodejs.org/dist/node-latest.tar.gz -O node-latest.tar.gz
