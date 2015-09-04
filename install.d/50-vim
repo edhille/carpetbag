@@ -69,13 +69,22 @@ install_bundle 'tpope/vim-fugitive'
 # popd
 
 # install fonts for airline
-pushd /tmp
-git clone https://github.com/powerline/fonts.git
-./fonts/install.sh
-popd
+ls ~/.fonts/*owerline* 2>&1 > /dev/null;
+if [ $? -ne 0 ]
+then
+	echo 'installing powerline fonts...'
+	pushd /tmp
+	git clone https://github.com/powerline/fonts.git
+	./fonts/install.sh
+	rm -Rf ./fonts
+	popd
+fi
 
 # install silver-searcher
-brew list the_silver_searcher 2>&1 > /dev/null
+if [ $(uname) == 'Darwin' ]
+then
+	brew list the_silver_searcher 2>&1 > /dev/null
+fi
 
 if command -v ag>/dev/null 2>&1; then
    echo 'silver server installed...'
