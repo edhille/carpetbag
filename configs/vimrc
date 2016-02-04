@@ -59,7 +59,8 @@ syntax on
 set ttymouse=xterm
 
 " folding
-let javascript_fold=1
+set foldlevelstart=2
+let javascript_fold=2
 let ruby_fold=1
 let perl_fold=1
 let perl_fold_blocks=1
