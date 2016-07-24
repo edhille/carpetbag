@@ -64,6 +64,10 @@ install_bundle 'tpope/vim-fugitive'
 
 install_bundle 'groenewege/vim-less'
 
+install_bundle 'Shougo/neocomplete'
+
+install_bundle 'Konfekt/FastFold'
+
 
 # this is messing with back word navigation (making each move back take ~3s)
 # install_bundle 'maksimr/vim-jsbeautify'

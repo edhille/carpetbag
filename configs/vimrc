@@ -1,6 +1,12 @@
+" set the spacebar as our leader
+let mapleader = "\<Space>"
+
 " pathogen
 call pathogen#infect()
 call pathogen#helptags()
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 " layout
 set ruler
@@ -32,7 +38,7 @@ if executable('ag')
 endif
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap <Leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " tabs
 set noexpandtab
@@ -45,8 +51,8 @@ set modeline
 
 " Buffer mods
 set hidden " retain undos in buffers
-nnoremap bn :bnext<Cr>
-nnoremap bp :bprev<Cr>
+nnoremap <Leader>bn :bnext<Cr>
+nnoremap <Leader>bp :bprev<Cr>
 
 " enable clipboard copying in osx
 set clipboard=unnamed
@@ -84,7 +90,7 @@ augroup json_autocmd
   autocmd FileType json set foldmethod=syntax
 augroup END
 
-" tweaks for specific filetypes 
+" tweaks for specific filetypes
 if !exists("custom_file_formatting_loaded")
 	let custom_file_formatting_loaded=1
 	autocmd FileType perl call PerlFileSettings()
@@ -148,7 +154,6 @@ function UpdateJsHintConf()
     let l:dir = expand('%:p:h')
     " let l:jshintrc = s:find_jshintrc(l:dir)
     " let g:syntastic_javascript_jshint_conf = l:jshintrc
-	" let g:syntastic_javascript_jshint_args = '--config /Users/tedhille/Documents/Projects/heuristocrat.net/midi-visualizer-monad/.jshintrc'
 	" let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
 	let g:syntastic_javascript_checkers = ['eslint']
 endfunction

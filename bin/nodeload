@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in $(find -L ~/.carpetbag/node/ -type f ! -iname ".*" | sort)
+for file in $(find -L ~/.carpetbag/node/enabled -type f ! -iname ".*" | sort)
 do
    $file
 done
