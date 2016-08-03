@@ -68,6 +68,9 @@ install_bundle 'Shougo/neocomplete'
 
 install_bundle 'Konfekt/FastFold'
 
+install_bundle 'mxw/vim-jsx'
+
+install_bundle 'jaawerth/nrun.vim'
 
 # this is messing with back word navigation (making each move back take ~3s)
 # install_bundle 'maksimr/vim-jsbeautify'

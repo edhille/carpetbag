@@ -51,8 +51,8 @@ set modeline
 
 " Buffer mods
 set hidden " retain undos in buffers
-nnoremap <Leader>bn :bnext<Cr>
-nnoremap <Leader>bp :bprev<Cr>
+nnoremap <Leader>n :bnext<Cr>
+nnoremap <Leader>p :bprev<Cr>
 
 " enable clipboard copying in osx
 set clipboard=unnamed
@@ -65,8 +65,7 @@ syntax on
 set ttymouse=xterm
 
 " folding
-set foldlevelstart=2
-let javascript_fold=2
+set foldlevelstart=3
 let ruby_fold=1
 let perl_fold=1
 let perl_fold_blocks=1
@@ -135,31 +134,29 @@ map <F6> <Esc>:EnableFastPHPFolds<Cr>
 map <F7> <Esc>:EnablePHPFolds<Cr>
 map <F8> <Esc>:DisablePHPFolds<Cr>
 
-" Help Syntastic find the right .jshintrc per project
-function s:find_jshintrc(dir)
-    let l:found = globpath(a:dir, '.jshintrc')
-    if filereadable(l:found)
-        return l:found
-    endif
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-    let l:parent = fnamemodify(a:dir, ':h')
-    if l:parent != a:dir
-        return s:find_jshintrc(l:parent)
-    endif
-
-    return "~/.jshintrc"
-endfunction
-
-function UpdateJsHintConf()
-    let l:dir = expand('%:p:h')
-    " let l:jshintrc = s:find_jshintrc(l:dir)
-    " let g:syntastic_javascript_jshint_conf = l:jshintrc
-	" let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
-	let g:syntastic_javascript_checkers = ['eslint']
-endfunction
-
+" Syntastic
 let g:syntastic_always_populate_loc_list = 1
-au BufEnter * call UpdateJsHintConf()
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let b:syntastic_javascript_eslint_exec = nrun#Which('eslint')
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+nnoremap <Leader>l :execute SyntasticCheck eslint 
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
