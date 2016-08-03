@@ -129,6 +129,9 @@ let NERDTreeQuitOnOpen=1
 " Give a shortcut key to running validations
 map <F5> :Make<CR><C-w><Up>
 
+" common operations
+nnoremap <Leader>o :CtrlP<CR>
+
 " PHP folding (really buggy...)
 map <F6> <Esc>:EnableFastPHPFolds<Cr>
 map <F7> <Esc>:EnablePHPFolds<Cr>
