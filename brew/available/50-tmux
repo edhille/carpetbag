@@ -1,0 +1,8 @@
+#! /bin/sh
+
+brew list reattach-to-user-namespace 2>&1 > /dev/null
+
+if [ $? -ne 0 ]; then
+	echo 'must not have tmux copy/paste helper installed'
+	brew install reattach-to-user-namespace
+fi

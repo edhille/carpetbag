@@ -62,6 +62,8 @@ install_bundle 'elzr/vim-json'
 
 install_bundle 'tpope/vim-fugitive'
 
+install_bundle 'groenewege/vim-less'
+
 install_bundle 'Shougo/neocomplete'
 
 install_bundle 'Konfekt/FastFold'

@@ -155,11 +155,9 @@ endfunction
 
 function UpdateJsHintConf()
     let l:dir = expand('%:p:h')
-    let l:jshintrc = s:find_jshintrc(l:dir)
-    let g:syntastic_javascript_jshint_conf = l:jshintrc
-	" let g:syntastic_javascript_jshint_args = '--config /Users/tedhille/Documents/Projects/heuristocrat.net/midi-visualizer-monad/.jshintrc'
-	let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
-	" let g:syntastic_javascript_checkers = ['jshint']
+    " let l:jshintrc = s:find_jshintrc(l:dir)
+    " let g:syntastic_javascript_jshint_conf = l:jshintrc
+	" let g:syntastic_javascript_jshint_args = '--config ' . l:jshintrc
 	let g:syntastic_javascript_checkers = ['eslint']
 endfunction
 
@@ -187,3 +185,4 @@ set laststatus=2
 " autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 " autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['jshint']

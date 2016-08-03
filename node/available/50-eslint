@@ -1,0 +1,9 @@
+#! /bin/bash
+
+npm list -g | grep -q 'eslint'
+
+if [ ${PIPESTATUS[1]:-0} -ne 0  ]
+then
+   sudo npm install -g eslint 
+fi
+
