@@ -1,0 +1,11 @@
+#! /bin/sh
+
+brew list python 2>&1 > /dev/null
+
+if [ $? -ne 0 ]; then
+	echo 'must not have python installed'
+	brew install python
+fi
+
+echo 'using python to set up powerline...'
+pip install powerline-status

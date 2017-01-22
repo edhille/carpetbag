@@ -78,6 +78,8 @@ install_bundle 'jaawerth/nrun.vim'
 # popd
 
 # install fonts for airline
+# NOTE: you will need to update iTerm2 to use one of the "powerline" fonts in
+#       order for this to work
 ls ~/.fonts/*owerline* 2>&1 > /dev/null;
 if [ $? -ne 0 ]
 then
