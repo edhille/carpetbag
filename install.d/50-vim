@@ -72,6 +72,8 @@ install_bundle 'mxw/vim-jsx'
 
 install_bundle 'jaawerth/nrun.vim'
 
+install_bundle 'elixir-lang/vim-elixir'
+
 # this is messing with back word navigation (making each move back take ~3s)
 # install_bundle 'maksimr/vim-jsbeautify'
 # pushd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive
