@@ -66,12 +66,12 @@ syntax on
 set ttymouse=xterm
 
 " folding
-set foldlevelstart=3
+set foldlevelstart=50
 let ruby_fold=1
 let perl_fold=1
 let perl_fold_blocks=1
 set foldmethod=indent
-autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml setlocal foldmethod=syntax
+autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,ex,exs setlocal foldmethod=syntax
 autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,perl normal zR
 
 " javascript tweaks
