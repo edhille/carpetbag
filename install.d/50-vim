@@ -48,7 +48,7 @@ install_bundle 'flazz/vim-colorschemes'
 
 install_bundle 'yearofmoo/Vim-Darkmate'
 
-install_bundle 'scrooloose/syntastic'
+install_bundle 'w0rp/ale'
 
 install_bundle 'kien/ctrlp.vim'
 
