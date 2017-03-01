@@ -42,8 +42,6 @@ fi
 
 install_bundle 'vim-scripts/Auto-Pairs'
 
-install_bundle 'pangloss/vim-javascript'
-
 install_bundle 'flazz/vim-colorschemes'
 
 install_bundle 'yearofmoo/Vim-Darkmate'
@@ -58,21 +56,15 @@ install_bundle 'editorconfig/editorconfig-vim'
 
 install_bundle 'bling/vim-airline'
 
-install_bundle 'elzr/vim-json'
-
 install_bundle 'tpope/vim-fugitive'
-
-install_bundle 'groenewege/vim-less'
 
 install_bundle 'Shougo/neocomplete'
 
 install_bundle 'Konfekt/FastFold'
 
-install_bundle 'mxw/vim-jsx'
-
 install_bundle 'jaawerth/nrun.vim'
 
-install_bundle 'elixir-lang/vim-elixir'
+install_bundle 'sheerun/vim-polyglot'
 
 # this is messing with back word navigation (making each move back take ~3s)
 # install_bundle 'maksimr/vim-jsbeautify'
