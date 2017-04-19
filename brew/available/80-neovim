@@ -1,0 +1,10 @@
+#! /bin/sh
+
+brew list nvim 2>&1 > /dev/null
+
+if [ $? -ne 0 ]; then
+	echo 'must not have neovim installed'
+	brew install neovim/neovim/neovim
+	brew install python3
+	pip3 install neovim
+fi

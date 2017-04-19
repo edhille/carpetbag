@@ -37,7 +37,7 @@ if command -v nvm >/dev/null 2>&1; then
    echo 'nvm installed already...'
 else
    echo 'installing nvm...'
-   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 fi
 
 ~/.carpetbag/bin/nodeload

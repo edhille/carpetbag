@@ -5,9 +5,6 @@ let mapleader = "\<Space>"
 call pathogen#infect()
 call pathogen#helptags()
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-
 " layout
 set ruler
 set nu
@@ -15,7 +12,6 @@ set wrap
 
 " help keep lines to the appropriate length
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%>131v.\+/
 set lbr
 set tw=130
 
@@ -63,7 +59,7 @@ let g:netrw_fastbrowse=0
 set nobackup
 filetype plugin indent on
 syntax on
-set ttymouse=xterm
+"set ttymouse=xterm
 
 " folding
 set foldlevelstart=50
@@ -138,8 +134,16 @@ map <F6> <Esc>:EnableFastPHPFolds<Cr>
 map <F7> <Esc>:EnablePHPFolds<Cr>
 map <F8> <Esc>:DisablePHPFolds<Cr>
 
+" vim vs neovim
+
+if has('nvim')
+else
+	" neocomplete
+	let g:neocomplete#enable_at_startup = 1
+	set statusline+=%{ALEGetStatusLine()}
+endif
+
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Syntastic
@@ -176,11 +180,3 @@ let g:ctrlp_custom_ignore = {
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set laststatus=2
-
-" jsbeautify
-" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
-" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-" autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['jshint']

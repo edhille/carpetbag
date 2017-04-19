@@ -19,6 +19,7 @@ install_bundle () {
    fi
 }
 
+rm -Rf ~/.vim/bundle/*
 
 install_bundle 'scrooloose/nerdtree'
 
@@ -46,8 +47,6 @@ install_bundle 'flazz/vim-colorschemes'
 
 install_bundle 'yearofmoo/Vim-Darkmate'
 
-install_bundle 'w0rp/ale'
-
 install_bundle 'kien/ctrlp.vim'
 
 install_bundle 'tomtom/tcomment_vim'
@@ -58,32 +57,12 @@ install_bundle 'bling/vim-airline'
 
 install_bundle 'tpope/vim-fugitive'
 
-install_bundle 'Shougo/neocomplete'
-
 install_bundle 'Konfekt/FastFold'
 
 install_bundle 'jaawerth/nrun.vim'
 
 install_bundle 'sheerun/vim-polyglot'
 
-# this is messing with back word navigation (making each move back take ~3s)
-# install_bundle 'maksimr/vim-jsbeautify'
-# pushd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive
-# popd
-
-# install fonts for airline
-# NOTE: you will need to update iTerm2 to use one of the "powerline" fonts in
-#       order for this to work
-ls ~/.fonts/*owerline* 2>&1 > /dev/null;
-if [ $? -ne 0 ]
-then
-	echo 'installing powerline fonts...'
-	pushd /tmp
-	git clone https://github.com/powerline/fonts.git
-	./fonts/install.sh
-	rm -Rf ./fonts
-	popd
-fi
 
 # install silver-searcher
 if [ $(uname) == 'Darwin' ]
@@ -95,6 +74,15 @@ if command -v ag>/dev/null 2>&1; then
    echo 'silver server installed...'
 
    install_bundle 'rking/ag.vim'
+fi
+
+if command -v nvim>/dev/null 2>&1; then
+	echo 'neovim installed (installing neovim-specific bundles)...'
+	install_bundle 'Shugo/deoplete'
+else
+	echo 'no neovim (installing vim-specific bundles)...'
+	install_bundle 'w0rp/ale'
+	install_bundle 'Shougo/neocomplete'
 fi
 
 popd
