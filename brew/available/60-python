@@ -1,0 +1,15 @@
+#! /bin/sh
+
+brew list python 2>&1 > /dev/null
+
+if [ $? -ne 0 ]; then
+	echo 'must not have python installed'
+	brew install python
+fi
+
+brew list python3 2>&1 > /dev/null
+
+if [ $? -ne 0 ]; then
+	echo 'must not have python3 installed'
+	brew install python3
+fi

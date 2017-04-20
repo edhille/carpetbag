@@ -5,9 +5,6 @@ let mapleader = "\<Space>"
 call pathogen#infect()
 call pathogen#helptags()
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-
 " layout
 set ruler
 set nu
@@ -15,7 +12,6 @@ set wrap
 
 " help keep lines to the appropriate length
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%>131v.\+/
 set lbr
 set tw=130
 
@@ -44,6 +40,7 @@ nnoremap <Leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set autoindent
 
 " but let files have overrides...
@@ -62,15 +59,15 @@ let g:netrw_fastbrowse=0
 set nobackup
 filetype plugin indent on
 syntax on
-set ttymouse=xterm
+"set ttymouse=xterm
 
 " folding
-set foldlevelstart=3
+set foldlevelstart=50
 let ruby_fold=1
 let perl_fold=1
 let perl_fold_blocks=1
 set foldmethod=indent
-autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml setlocal foldmethod=syntax
+autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,ex,exs setlocal foldmethod=syntax
 autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,perl normal zR
 
 " javascript tweaks
@@ -137,8 +134,18 @@ map <F6> <Esc>:EnableFastPHPFolds<Cr>
 map <F7> <Esc>:EnablePHPFolds<Cr>
 map <F8> <Esc>:DisablePHPFolds<Cr>
 
+" vim vs neovim
+
+if has('nvim')
+	let g:deoplete#enable_at_startup = 1
+	call deoplete#enable()
+else
+	" neocomplete
+	let g:neocomplete#enable_at_startup = 1
+	set statusline+=%{ALEGetStatusLine()}
+endif
+
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Syntastic
@@ -175,11 +182,3 @@ let g:ctrlp_custom_ignore = {
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set laststatus=2
-
-" jsbeautify
-" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
-" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-" autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['jshint']

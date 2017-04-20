@@ -1,0 +1,32 @@
+#! /bin/bash
+
+if [ $(uname) == 'Darwin' ]
+then
+	echo "Install programming font..."
+
+	pushd /tmp
+		mkdir Monoid
+		pushd Monoid
+			curl -L https://raw.githubusercontent.com/larsenwork/monoid/2db2d289f4e61010dd3f44e09918d9bb32fb96fd/Monoid-Dollar.zip > Monoid-Dollar.zip
+			unzip Monoid-Dollar.zip
+			open -g *.ttf
+		popd
+		rm -Rf Monoid
+	popd
+
+	# install fonts for airline
+	# NOTE: you will need to update iTerm2 to use one of the "powerline" fonts in
+	#       order for this to work
+	ls ~/.fonts/*owerline* 2>&1 > /dev/null;
+	if [ $? -ne 0 ]
+	then
+		echo 'installing powerline fonts...'
+		pushd /tmp
+		git clone https://github.com/powerline/fonts.git
+		./fonts/install.sh
+		rm -Rf ./fonts
+		popd
+	fi
+else
+	echo "Not sure how to install font on this system..."
+fi
