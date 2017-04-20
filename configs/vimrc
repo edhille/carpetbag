@@ -137,6 +137,8 @@ map <F8> <Esc>:DisablePHPFolds<Cr>
 " vim vs neovim
 
 if has('nvim')
+	let g:deoplete#enable_at_startup = 1
+	call deoplete#enable()
 else
 	" neocomplete
 	let g:neocomplete#enable_at_startup = 1

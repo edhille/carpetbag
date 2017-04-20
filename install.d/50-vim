@@ -78,7 +78,7 @@ fi
 
 if command -v nvim>/dev/null 2>&1; then
 	echo 'neovim installed (installing neovim-specific bundles)...'
-	install_bundle 'Shugo/deoplete'
+	install_bundle 'Shougo/deoplete.nvim'
 else
 	echo 'no neovim (installing vim-specific bundles)...'
 	install_bundle 'w0rp/ale'
