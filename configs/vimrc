@@ -92,7 +92,6 @@ if !exists("custom_file_formatting_loaded")
 	autocmd FileType perl call PerlFileSettings()
 	au BufNewFile,BufRead *.cap setf ruby
 	autocmd FileType ruby set tabstop=2 shiftwidth=2 autoindent
-	"autocmd FileType javascript set autoindent
 endif
 
 function! PerlFileSettings()
@@ -139,6 +138,7 @@ map <F8> <Esc>:DisablePHPFolds<Cr>
 if has('nvim')
 	let g:deoplete#enable_at_startup = 1
 	call deoplete#enable()
+	au BufRead,BufNewFile,BufWritePost * Neomake
 else
 	" neocomplete
 	let g:neocomplete#enable_at_startup = 1
@@ -147,26 +147,6 @@ endif
 
 set statusline+=%#warningmsg#
 set statusline+=%*
-
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let b:syntastic_javascript_eslint_exec = nrun#Which('eslint')
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-nnoremap <Leader>l :execute SyntasticCheck eslint 
 
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
