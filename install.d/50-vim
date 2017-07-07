@@ -63,6 +63,8 @@ install_bundle 'jaawerth/nrun.vim'
 
 install_bundle 'sheerun/vim-polyglot'
 
+install_bundle 'neomake/neomake'
+
 
 # install silver-searcher
 if [ $(uname) == 'Darwin' ]
