@@ -5,5 +5,7 @@ brew list neovim 2>&1 > /dev/null
 if [ $? -ne 0 ]; then
 	echo 'must not have neovim installed'
 	brew install neovim/neovim/neovim
+
+	pip2 install neovim
 	pip3 install neovim
 fi
