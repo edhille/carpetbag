@@ -65,6 +65,8 @@ install_bundle 'sheerun/vim-polyglot'
 
 install_bundle 'neomake/neomake'
 
+install_bundle 'vimwiki/vimwik'
+
 
 # install silver-searcher
 if [ $(uname) == 'Darwin' ]
