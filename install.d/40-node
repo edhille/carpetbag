@@ -10,9 +10,8 @@ else
 	   brew install node
    elif command -v apt-get >/dev/null 2>&1;
    then
-   	   echo 'installing node/npm via apt-get...'
-	   sudo apt-get install node
-	   sudo apt-get install npm
+	   echo 'installing nvm...'
+	   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
    elif [ $(uname) == 'Linux' ]
    then
    	    echo 'installing node/npm the hard way...'
