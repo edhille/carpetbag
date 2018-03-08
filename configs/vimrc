@@ -1,9 +1,49 @@
+if has('nvim')
+	call plug#begin('~/.local/share/nvim/plugged')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	let g:python_host_prog = '/usr/local/opt/python@2/libexec/bin/python'
+	let g:python3_host_prog = '/usr/local/bin/python3'
+	let g:deoplete#enable_at_startup = 1
+	let g:deoplete#enable_debug = 1
+	let g:deoplete#enable_profile = 1
+	Plug 'neomake/neomake'
+	au BufRead,BufNewFile,BufWritePost * Neomake
+else
+	call plug#begin('~/.vim/plugged')
+	Plugin 'w0rp/ale'
+	let g:neocomplete#enable_at_startup = 1
+	set statusline+=%{ALEGetStatusLine()}
+endif
+
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/Auto-Pairs'
+Plug 'flazz/vim-colorschemes'
+Plug 'yearofmoo/Vim-Darkmate'
+Plug 'kien/ctrlp.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'vimwiki/vimwiki'
+Plug 'vim-scripts/xoria256.vim'
+
+if executable('ag') 
+	Plug 'rking/ag.vim'
+	" Use ag over grep
+	set grepprg=ag\ --nogroup\ --nocolor
+
+	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+	" ag is fast enough that CtrlP doesn't need to cache
+	let g:ctrlp_use_caching = 0
+endif
+
+call plug#end()
+
 " set the spacebar as our leader
 let mapleader = "\<Space>"
-
-" pathogen
-call pathogen#infect()
-call pathogen#helptags()
 
 " layout
 set ruler
@@ -20,18 +60,6 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-
-" The Silver Searcher
-if executable('ag')
-	" Use ag over grep
-	set grepprg=ag\ --nogroup\ --nocolor
-
-	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-	" ag is fast enough that CtrlP doesn't need to cache
-	let g:ctrlp_use_caching = 0
-endif
 
 " bind K to grep word under cursor
 nnoremap <Leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -59,16 +87,6 @@ let g:netrw_fastbrowse=0
 set nobackup
 filetype plugin indent on
 syntax on
-"set ttymouse=xterm
-
-" folding
-" set foldlevelstart=50
-" let ruby_fold=1
-" let perl_fold=1
-" let perl_fold_blocks=1
-" set foldmethod=indent
-" autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,ex,exs setlocal foldmethod=syntax
-" autocmd Syntax c,cpp,javascript,vim,xml,html,xhtml,perl normal zR
 
 " javascript tweaks
 au BufNewFile,BufRead *.pjs setf javascript
@@ -85,19 +103,6 @@ augroup json_autocmd
   autocmd FileType json set expandtab
   autocmd FileType json set foldmethod=syntax
 augroup END
-
-" tweaks for specific filetypes
-if !exists("custom_file_formatting_loaded")
-	let custom_file_formatting_loaded=1
-	autocmd FileType perl call PerlFileSettings()
-	au BufNewFile,BufRead *.cap setf ruby
-	autocmd FileType ruby set tabstop=2 shiftwidth=2 autoindent
-endif
-
-function! PerlFileSettings()
-	set cindent
-	set cinkeys=0{,0},!^F,o,O,e
-endfunction
 
 augroup markdown
 	au! BufRead,BufNewFile *.mkd   setfiletype mkd
@@ -132,18 +137,6 @@ nnoremap <Leader>o :CtrlP<CR>
 map <F6> <Esc>:EnableFastPHPFolds<Cr>
 map <F7> <Esc>:EnablePHPFolds<Cr>
 map <F8> <Esc>:DisablePHPFolds<Cr>
-
-" vim vs neovim
-
-if has('nvim')
-	let g:deoplete#enable_at_startup = 1
-	call deoplete#enable()
-	au BufRead,BufNewFile,BufWritePost * Neomake
-else
-	" neocomplete
-	let g:neocomplete#enable_at_startup = 1
-	set statusline+=%{ALEGetStatusLine()}
-endif
 
 set statusline+=%#warningmsg#
 set statusline+=%*

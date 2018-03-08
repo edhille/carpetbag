@@ -1,27 +1,20 @@
 #! /bin/bash
 
-echo "Installing pathogen..."
+echo "Installing vim-plug..."
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
-echo "Add our favorite vim bundles..."
+if command -v nvim>/dev/null 2>&1; then
+	echo 'neovim installed (installing neovim-specific vim-plugin)...'
 
-mkdir -p ~/.vim/bundle
-pushd ~/.vim/bundle
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+	echo 'no neovim (installing vim-plugin for generic vim)...'
 
-install_bundle () {
-   author_plugin=(${1//\// })
-
-   if [ ! -d ~/.vim/bundle/${author_plugin[1]} ]; then
-      git clone https://github.com/$1.git
-   fi
-}
-
-rm -Rf ~/.vim/bundle/*
-
-install_bundle 'scrooloose/nerdtree'
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
 # jshint requires there be a javascript runtime
 # if this is running on OSX, everything should be fine,
@@ -41,32 +34,6 @@ if [ $(uname) == 'Linux' ]; then
 	fi
 fi
 
-install_bundle 'vim-scripts/Auto-Pairs'
-
-install_bundle 'flazz/vim-colorschemes'
-
-install_bundle 'yearofmoo/Vim-Darkmate'
-
-install_bundle 'kien/ctrlp.vim'
-
-install_bundle 'tomtom/tcomment_vim'
-
-install_bundle 'editorconfig/editorconfig-vim'
-
-install_bundle 'bling/vim-airline'
-
-install_bundle 'tpope/vim-fugitive'
-
-install_bundle 'Konfekt/FastFold'
-
-install_bundle 'jaawerth/nrun.vim'
-
-install_bundle 'sheerun/vim-polyglot'
-
-install_bundle 'neomake/neomake'
-
-install_bundle 'vimwiki/vimwik'
-
 
 # install silver-searcher
 if [ $(uname) == 'Darwin' ]
@@ -78,15 +45,6 @@ if command -v ag>/dev/null 2>&1; then
    echo 'silver server installed...'
 
    install_bundle 'rking/ag.vim'
-fi
-
-if command -v nvim>/dev/null 2>&1; then
-	echo 'neovim installed (installing neovim-specific bundles)...'
-	install_bundle 'Shougo/deoplete.nvim'
-else
-	echo 'no neovim (installing vim-specific bundles)...'
-	install_bundle 'w0rp/ale'
-	install_bundle 'Shougo/neocomplete'
 fi
 
 popd
