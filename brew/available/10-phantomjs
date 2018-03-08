@@ -1,8 +1,0 @@
-#! /bin/sh
-
-brew list phantomjs 2>&1 > /dev/null
-
-if [ $? -ne 0 ]; then
-	echo 'must not have phantomjs installed'
-	brew install phantomjs
-fi

@@ -1,9 +1,0 @@
-#! /bin/sh
-
-brew list macvim 2>&1 > /dev/null
-
-if [ $? -ne 0 ]; then
-	echo 'must not have macvim installed'
-	brew install macvim --with-cscope --with-lua
-	brew linkapps macvim
-fi

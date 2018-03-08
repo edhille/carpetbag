@@ -23,17 +23,4 @@ if [ $(uname) == 'Linux' ]; then
 	fi
 fi
 
-
-# install silver-searcher
-if [ $(uname) == 'Darwin' ]
-then
-	brew list the_silver_searcher 2>&1 > /dev/null
-fi
-
-if command -v ag>/dev/null 2>&1; then
-   echo 'silver server installed...'
-
-   install_bundle 'rking/ag.vim'
-fi
-
 popd
