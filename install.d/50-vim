@@ -23,4 +23,9 @@ if [ $(uname) == 'Linux' ]; then
 	fi
 fi
 
+if command -v nvim >/dev/null 2>&1; then
+	echo 'nvim installed, so linking config...'
+	ln -s ~/.vimrc ~/.config/nvim/init.vim
+fi
+
 popd
