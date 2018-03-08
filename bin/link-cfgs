@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 CONFIGS_DIR=~/.carpetbag/configs
 
@@ -21,7 +21,7 @@ copy_config() {
 			fi
 		done
 
-		popd $full_path
+		popd
 	elif [ -f $full_path -a ! -e $target ]
 	then
 		ln -s $full_path $target

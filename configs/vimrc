@@ -1,4 +1,10 @@
 if has('nvim')
+	if empty(glob('~/.local/share/nvim/autoload/plug.vim'))
+		  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+			  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+
 	call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	let g:python_host_prog = '/usr/local/opt/python@2/libexec/bin/python'
@@ -9,8 +15,14 @@ if has('nvim')
 	Plug 'neomake/neomake'
 	au BufRead,BufNewFile,BufWritePost * Neomake
 else
+	if empty(glob('~/.vim/autoload/plug.vim'))
+		  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+			  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+
 	call plug#begin('~/.vim/plugged')
-	Plugin 'w0rp/ale'
+	Plug 'w0rp/ale'
 	let g:neocomplete#enable_at_startup = 1
 	set statusline+=%{ALEGetStatusLine()}
 endif

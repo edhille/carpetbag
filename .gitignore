@@ -8,3 +8,4 @@ node/enabled/*
 npm-debug.log
 cacert.pem
 configs/bash-git-completion
+.bash-git-prompt
