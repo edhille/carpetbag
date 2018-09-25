@@ -2,15 +2,6 @@
 
 ~/.carpetbag/bin/stub-cert-support -i
 
-# update our submodules if we have not set them up yet on this machine
-if [  $(ls -l ~/.carpetbag/configs/bash-git-prompt | wc -l) = 0 ]; then
-	git submodule init
-	git submodule update
-fi
-
-# get bash completion
-curl -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.carpetbag/configs/bash-git-completion
-
 echo "Run installers..."
 for file in ~/.carpetbag/install.d/*; do $file; done
 

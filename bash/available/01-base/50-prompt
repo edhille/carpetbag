@@ -1,4 +1,0 @@
-# add a git-prompt (from https://github.com/magicmonty/bash-git-prompt)
-
-source ~/.bash-git-prompt/gitprompt.sh
-source ~/.carpetbag/configs/bash-git-completion

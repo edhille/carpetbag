@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "Configure bash to load all enabled settings files..."
+unique=uijooQu2
+
+numuniq=$(grep -c $unique ~/.zsh_profile)
+if [[ $numuniq -eq 0 ]]; then
+   echo "Updating .zsh_profile to always source .zshrc..."
+   echo "source ~/.zshrc #$unique" >> ~/.zsh_profile
+else
+   echo "Already configured to load .zshrc..."
+fi
+
+numuniq=$(grep -c $unique ~/.zshrc)
+if [[ $numuniq -eq 0 ]]; then
+   echo "Add necessary configuration..."
+   echo "source ~/.carpetbag/bin/zshload #$unique" >> ~/.zshrc
+elif [[ $numuniq -eq 1 ]]; then
+   echo "Already have our setup..."
+fi
+
+source ~/.zshrc

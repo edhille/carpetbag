@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ -e ~/.bash_local ]
+if [ -e ~/.zsh_local ]
 then
-	source ~/.bash_local
+	source ~/.zsh_local
 fi

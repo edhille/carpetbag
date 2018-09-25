@@ -29,7 +29,7 @@ else
 
    # NOTE: we assume node is set up in /usr/local/share/
 
-   echo "PATH=$PATH:/usr/local/share/npm/bin" >> ~/.bashrc
+   echo "PATH=$PATH:/usr/local/share/npm/bin" >> ~/.zshrc
 fi
 
 if command -v nvm >/dev/null 2>&1; then
