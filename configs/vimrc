@@ -7,7 +7,7 @@ if has('nvim')
 
 	call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	let g:python_host_prog = '/usr/local/opt/python@2/libexec/bin/python'
+	let g:python_host_prog = '/usr/local/bin/python'
 	let g:python3_host_prog = '/usr/local/bin/python3'
 	let g:deoplete#enable_at_startup = 1
 	let g:deoplete#enable_debug = 1
