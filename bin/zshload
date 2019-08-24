@@ -4,3 +4,5 @@ for file in $(find -L ~/.carpetbag/bash/enabled/ -type f ! -iname ".*" | sort)
 do
    source $file
 done
+
+bindkey -v
