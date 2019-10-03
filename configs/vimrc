@@ -146,11 +146,6 @@ map <F5> :Make<CR><C-w><Up>
 " common operations
 nnoremap <Leader>o :CtrlP<CR>
 
-" PHP folding (really buggy...)
-map <F6> <Esc>:EnableFastPHPFolds<Cr>
-map <F7> <Esc>:EnablePHPFolds<Cr>
-map <F8> <Esc>:DisablePHPFolds<Cr>
-
 set statusline+=%#warningmsg#
 set statusline+=%*
 
