@@ -1,10 +1,10 @@
-if has('nvim')
-	if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-		  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-			  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-			autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 
+endif
+if has('nvim')
 	call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	let g:python_host_prog = '/usr/local/bin/python'
@@ -23,9 +23,6 @@ else
 	endif
 
 	call plug#begin('~/.vim/plugged')
-	Plug 'w0rp/ale'
-	let g:neocomplete#enable_at_startup = 1
-	set statusline+=%{ALEGetStatusLine()}
 endif
 
 Plug 'scrooloose/nerdtree'
@@ -38,8 +35,36 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
-Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/xoria256.vim'
+
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
 
 if executable('ag') 
 	Plug 'rking/ag.vim'

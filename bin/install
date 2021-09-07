@@ -1,6 +1,6 @@
 #! /bin/bash
 
-~/.carpetbag/bin/stub-cert-support -i
+# ~/.carpetbag/bin/stub-cert-support -i
 
 echo "Run installers..."
 for file in ~/.carpetbag/install.d/*; do $file; done
