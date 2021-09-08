@@ -1,20 +1,19 @@
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 
 endif
+
 if has('nvim')
 	call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	let g:python_host_prog = '/usr/local/bin/python'
 	let g:python3_host_prog = '/usr/local/bin/python3'
 	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#enable_debug = 1
-	let g:deoplete#enable_profile = 1
+	"let g:deoplete#enable_debug = 1
 	Plug 'neomake/neomake'
 	au BufRead,BufNewFile,BufWritePost * Neomake
-	Plug 'mhartington/nvim-typescript'
 else
 	if empty(glob('~/.vim/autoload/plug.vim'))
 		  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -27,7 +26,6 @@ endif
 
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/Auto-Pairs'
-Plug 'flazz/vim-colorschemes'
 Plug 'yearofmoo/Vim-Darkmate'
 Plug 'kien/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
@@ -35,7 +33,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-scripts/xoria256.vim'
+Plug 'joshdick/onedark.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -126,9 +124,6 @@ set nobackup
 filetype plugin indent on
 syntax on
 
-" javascript tweaks
-au BufNewFile,BufRead *.pjs setf javascript
-
 " json tweaks
 au! BufRead,BufNewFile *.json set filetype=json
 
@@ -143,7 +138,16 @@ augroup json_autocmd
 augroup END
 
 augroup markdown
-	au! BufRead,BufNewFile *.mkd   setfiletype mkd
+  autocmd!
+  au! BufRead,BufNewFile *.mkd   setfiletype mkd
+augroup END
+
+augroup javascript
+  autocmd!
+  autocmd FileType javascript set suffixesadd=.tsx,.ts,.jsx,.js
+  autocmd FileType javascriptreact set suffixesadd=.tsx,.ts,.jsx,.js
+  autocmd FileType typescript set suffixesadd=.tsx,.ts,.jsx,.js
+  autocmd FileType typescriptreact set suffixesadd=.tsx,.ts,.jsx,.js
 augroup END
 
 " color stuff
@@ -153,13 +157,7 @@ set t_ut=
 set t_Co=256
 set background=dark
 
-" NOTE: in tmux, using both these colorschemes creates an acceptable palette (singly, neither do....)
-"colorscheme 256-grayvim " ok...
-"colorscheme devbox-dark-256 " good...
-"colorscheme twilight256
-"colorscheme desert
-"colorscheme torte
-colorscheme xoria256
+colorscheme onedark
 
 " Give a shortcut key to NERD Tree
 map <C-n> :NERDTreeToggle<CR>
