@@ -8,10 +8,6 @@ endif
 
 if has('nvim')
 	call plug#begin('~/.local/share/nvim/plugged')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	let g:python3_host_prog = '/usr/local/bin/python3'
-	let g:deoplete#enable_at_startup = 1
-	"let g:deoplete#enable_debug = 1
 	Plug 'neomake/neomake'
 	au BufRead,BufNewFile,BufWritePost * Neomake
 else
@@ -101,11 +97,13 @@ set incsearch
 nnoremap <Leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " tabs
-set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set list
+set listchars=tab:>-
+set listchars=trail:-
 
 " but let files have overrides...
 set modeline
